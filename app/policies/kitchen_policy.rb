@@ -22,7 +22,11 @@ class KitchenPolicy < ApplicationPolicy
     record.user == user
   end
 
-  def destroy?
-    record.user == user
+  def show?
+    true
   end
+
+  # def destroy?
+  #   record.user == user
+  # end
 end

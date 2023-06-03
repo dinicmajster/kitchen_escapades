@@ -1,5 +1,5 @@
 class KitchensController < ApplicationController
-  before_action :get_kitchen, only: [:edit, :update]
+  before_action :get_kitchen, only: [:edit, :update, :show]
   def new
     @kitchen = Kitchen.new
     authorize @kitchen
@@ -9,12 +9,11 @@ class KitchensController < ApplicationController
     @kitchen = Kitchen.new(kitchen_params)
     @kitchen.user = current_user
     authorize @kitchen
-    @kitchen.save
-    # if @kitchen.save
-    #   redirect_to kitchen_path
-    # else
-    #   render :new, status: :unprocessable_entity
-    # end
+    if @kitchen.save
+      redirect_to kitchen_path(@kitchen)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -24,10 +23,14 @@ class KitchensController < ApplicationController
   def update
     authorize @kitchen
     @kitchen.update(kitchen_params)
-    # redirect_to kitchen_path(@kitchen)
+    redirect_to kitchen_path(@kitchen)
   end
 
-  def destroy
+  # def destroy
+  #   authorize @kitchen
+  # end
+
+  def show
     authorize @kitchen
   end
 

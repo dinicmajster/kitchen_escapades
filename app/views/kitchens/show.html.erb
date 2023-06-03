@@ -1,0 +1,13 @@
+<div class="container">
+  <div>
+    <h2>Name: <%= @kitchen.name %></h2>
+    <h3>Address: <%= @kitchen.location %></h3>
+    <h3>Available from: <%= @kitchen.availability %></h3>
+    <h3>Features: <%= @kitchen.features %></h3>
+    <h3>Description: <%= @kitchen.description %></h3>
+    <h3>Rating<%= @kitchen.rating %></h3>
+    <h3>Price: <%= @kitchen.price %></h3>
+    <h3>Owner info: <%= @kitchen.owner_info %></h3>
+  </div>
+  <button><%= link_to "Back to kitchens", root_path %>
+</div>
