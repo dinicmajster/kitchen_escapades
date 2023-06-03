@@ -1,5 +1,10 @@
 class KitchensController < ApplicationController
   before_action :get_kitchen, only: [:edit, :update, :show, :destroy]
+
+  def index
+    @kitchens = policy_scope(Kitchen)
+  end
+
   def new
     @kitchen = Kitchen.new
     authorize @kitchen

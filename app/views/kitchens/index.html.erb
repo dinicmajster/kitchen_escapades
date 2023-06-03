@@ -1,0 +1,13 @@
+<%= link_to "New kitchen", new_kitchen_path if policy(Kitchen).new? %>
+<div class="container">
+  <div class="row mt-5">
+    <div>
+      <% @kitchens.each do |kitchen| %>
+      <%= link_to kitchen.name, kitchen_path(kitchen) %>
+      <%= kitchen.description %>
+      <%= kitchen.rating %>
+      <%= kitchen.price %>
+      <% end %>
+    </div>
+  </div>
+</div>
