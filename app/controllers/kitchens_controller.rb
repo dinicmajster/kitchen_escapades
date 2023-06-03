@@ -1,5 +1,5 @@
 class KitchensController < ApplicationController
-  before_action :get_kitchen, only: [:edit, :update, :show]
+  before_action :get_kitchen, only: [:edit, :update, :show, :destroy]
   def new
     @kitchen = Kitchen.new
     authorize @kitchen
@@ -26,9 +26,11 @@ class KitchensController < ApplicationController
     redirect_to kitchen_path(@kitchen)
   end
 
-  # def destroy
-  #   authorize @kitchen
-  # end
+  def destroy
+    authorize @kitchen
+    @kitchen.destroy
+    redirect_to root_path, status: :see_other
+  end
 
   def show
     authorize @kitchen

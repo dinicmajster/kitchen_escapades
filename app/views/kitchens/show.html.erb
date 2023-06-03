@@ -9,5 +9,6 @@
     <h3>Price: <%= @kitchen.price %></h3>
     <h3>Owner info: <%= @kitchen.owner_info %></h3>
   </div>
-  <button><%= link_to "Back to kitchens", root_path %>
+  <button><%= link_to "Back to kitchens", root_path %></button>
+  <button><%= link_to "Delete",kitchen_path(@kitchen),data: {turbo_method: :delete, turbo_confirm: "R U sure?"}%></button>
 </div>
