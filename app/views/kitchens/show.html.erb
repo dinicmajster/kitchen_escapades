@@ -10,5 +10,8 @@
     <h3>Owner info: <%= @kitchen.owner_info %></h3>
   </div>
   <button><%= link_to "Back to kitchens", root_path %></button>
-  <button><%= link_to "Delete",kitchen_path(@kitchen),data: {turbo_method: :delete, turbo_confirm: "R U sure?"}%></button>
+  <% if policy(@kitchen).edit? %>
+  <%= link_to "Edit this kitchen", edit_kitchen_path(@kitchen) %>
+  <% end %>
+  <%= button_to "Destroy this kitchen", @kitchen, method: :delete if policy(@kitchen).destroy? %>
 </div>
