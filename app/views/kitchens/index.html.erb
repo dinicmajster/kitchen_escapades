@@ -3,10 +3,10 @@
   <div class="row mt-5">
     <div>
       <% @kitchens.each do |kitchen| %>
-      <%= link_to kitchen.name, kitchen_path(kitchen) %>
-      <%= kitchen.description %>
-      <%= kitchen.rating %>
-      <%= kitchen.price %>
+        <%= link_to kitchen.name, kitchen_path(kitchen) %>
+        <%= kitchen.description %>
+        <%= kitchen.rating %>
+        <%= kitchen.price %>
       <% end %>
     </div>
   </div>

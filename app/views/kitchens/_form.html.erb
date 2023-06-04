@@ -1,12 +1,14 @@
- <%= simple_form_for @kitchen do |f| %>
-    <%= f.input :name %>
-    <%= f.input :location %>
-    <%= f.input :availability %>
-    <%= f.input :features %>
-    <%= f.input :description %>
-    <%= f.input :rating %>
-    <%= f.input :price %>
-    <%= f.input :owner_info %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.submit %>
-  <% end %>
+ <div class="container">
+  <%= simple_form_for @kitchen do |f| %>
+      <%= f.input :name %>
+      <%= f.input :location %>
+      <%= f.input :availability %>
+      <%= f.input :features %>
+      <%= f.input :description %>
+      <%= f.input :rating %>
+      <%= f.input :price %>
+      <%= f.input :owner_info %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.submit %>
+    <% end %>
+</div>
