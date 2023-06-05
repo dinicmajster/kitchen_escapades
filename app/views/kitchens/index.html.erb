@@ -5,7 +5,7 @@
   <div class="row justify-content-center">
       <% @kitchens.each do |kitchen| %>
           <div class="card-product col-lg-4 mt-3">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <%= cl_image_tag kitchen.photos.sample.key, height: 200, width: 300, crop: :fill %>
             <div class="card-product-infos">
               <h2><%= link_to kitchen.name, kitchen_path(kitchen) %></h2>
               <p><%= kitchen.features %></p>
