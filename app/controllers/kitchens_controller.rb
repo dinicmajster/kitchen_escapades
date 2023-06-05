@@ -3,6 +3,12 @@ class KitchensController < ApplicationController
 
   def index
     @kitchens = policy_scope(Kitchen)
+    @markers = @kitchens.geocoded.map do |kitchen|
+      {
+        lat: kitchen.latitude,
+        lng: kitchen.longitude
+      }
+    end
   end
 
   def new
