@@ -1,15 +1,13 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://images.unsplash.com/photo-1554475659-edf5d531d08e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHNwb29ufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60" %>
-    <% end %>
-
+    <h4>Hot Pot <i class="fa-solid fa-kitchen-set" style="color: #f12009;"></i></h4>
+  </div>
+  <div class="container-fluid justify-content-end">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+      <ul class="navbar-nav me-auto ">
         <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to "Home", root_path, class: "nav-link" %>
@@ -17,10 +15,10 @@
           <li class="nav-item">
             <%= link_to "Messages", "#", class: "nav-link" %>
           </li>
-          <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu" %>
           </a>
+          <li class="nav-item dropdown">
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>
               <%= link_to "Another action", "#", class: "dropdown-item" %>
