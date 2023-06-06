@@ -1,5 +1,6 @@
 class KitchensController < ApplicationController
   before_action :get_kitchen, only: [:edit, :update, :show, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @kitchens = policy_scope(Kitchen)

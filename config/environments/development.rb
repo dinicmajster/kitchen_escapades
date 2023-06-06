@@ -10,6 +10,7 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
+  config.active_storage.replace_on_assign_to_many = false
 
   # Show full error reports.
   config.consider_all_requests_local = true
