@@ -8,7 +8,7 @@ class KitchensController < ApplicationController
       {
         lat: kitchen.latitude,
         lng: kitchen.longitude,
-        info_window: render_to_string(partial: "popup", locals: {kitchen: kitchen})
+        info_window: render_to_string(partial: "popup", locals: { kitchen: kitchen })
       }
     end
   end
