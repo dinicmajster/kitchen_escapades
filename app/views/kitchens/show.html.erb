@@ -71,9 +71,8 @@
         </h2>
         <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
           <div class="accordion-body">
-            <i class="fa-sharp fa-solid fa-kitchen-set" style="color: #3b0570;"></i>
             <% @kitchen.features.each do |feature| %>
-              <%= feature.name %>
+              <i class="fa-sharp fa-solid fa-kitchen-set" style="color: #3b0570;"></i> <%= feature.name %>
             <% end %>
           </div>
       </div>

@@ -7,28 +7,30 @@
 </div>
 <div class="container mt-4">
   <div class="row">
-  <div class="col-6">
-    <div class="cards">
-          <% @kitchens.each do |kitchen| %>
-            <% if kitchen.photos.attached? %>
-              <div class="card-product">
-                <%= cl_image_tag kitchen.photos.sample.key, height: 200, width: 300, crop: :fill %>
-            <% else %>
-              <img src="/app/assets/images/logo.png" alt="">
-            <% end %>
-                <div class="card-product-infos">
-                  <h2><%= link_to kitchen.name, kitchen_path(kitchen) %></h2>
-                  <p><%= kitchen.features %></p>
-                  <div class="container mt-1">
-                    <div class="d-flex justify-content-between">
-                      <i class="fa-sharp fa-solid fa-star" style="color: #f19c09;"> <%= kitchen.rating %> </i>
-                      <i class="fa-solid fa-sack-dollar"> <%= kitchen.price %></i>
+    <div class="col">
+      <div class="cards">
+            <% @kitchens.each do |kitchen| %>
+              <% if kitchen.photos.attached? %>
+                <div class="card-product">
+                  <%= cl_image_tag kitchen.photos.sample.key, height: 200, width: 300, crop: :fill %>
+              <% else %>
+                <img src="/app/assets/images/logo.png" alt="">
+              <% end %>
+                  <div class="card-product-infos d-flex flex-wrap">
+                    <h2><%= link_to kitchen.name, kitchen_path(kitchen) %></h2>
+                    <% kitchen.features.each do |feature| %>
+                      <p><%= feature.name %></p>
+                    <% end %>
+                    <div class="container mt-1">
+                      <div class="d-flex justify-content-between">
+                        <i class="fa-sharp fa-solid fa-star" style="color: #f19c09;"> <%= kitchen.rating %> </i>
+                        <i class="fa-solid fa-sack-dollar"> <%= kitchen.price %></i>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-          <% end %>
-    </div>
+            <% end %>
+      </div>
   </div>
   <div class="row col-6 map">
       <div data-controller='map'
