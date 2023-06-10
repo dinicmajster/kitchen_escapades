@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_09_072712) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_10_124616) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -78,13 +78,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_09_072712) do
     t.text "features"
     t.text "description"
     t.integer "rating"
-    t.float "price"
     t.text "owner_info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.float "latitude"
     t.float "longitude"
+    t.integer "price_cents", default: 0, null: false
     t.index ["user_id"], name: "index_kitchens_on_user_id"
   end
 
