@@ -6,10 +6,10 @@
         wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
       %>
       <%= f.input :availability %>
-      <%= f.association :features, input_html: {multiple: true, data: {controller: "tom-select"}}, include_hidden: false %>
       <%= f.input :description %>
       <%= f.input :rating %>
       <%= f.input :price %>
+      <%= f.association :features, :class => "tag", input_html: {multiple: true, data: {controller: "tom-select"}}, include_hidden: false %>
       <%= f.input :owner_info %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <%= f.submit %>

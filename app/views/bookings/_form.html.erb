@@ -1,0 +1,10 @@
+ <div class="container">
+  <%= simple_form_for [@kitchen, @booking] do |f| %>
+      <%= f.input :date %>
+      <%= f.input :time %>
+      <%= f.input :duration %>
+      <%= f.input :groceries, label: "Want some groceries?", :item_wrapper_class => 'inline' %>
+      <%= f.input :host, label: "Want host?", :item_wrapper_class => 'inline'%>
+      <%= f.submit %>
+    <% end %>
+</div>

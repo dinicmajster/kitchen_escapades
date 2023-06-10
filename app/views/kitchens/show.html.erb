@@ -48,6 +48,23 @@
         <i class="fa-solid fa-sack-dollar"></i>
         <%= @kitchen.price %>
       </div>
+      <button type="button" class="btn btn-flat mt-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">In the Pot <i class="fa-sharp fa-solid fa-carrot fa-lg" style="color: #fff;"></i></button>
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Book your <i class="fa-solid fa-kitchen-set" style="color: #f12009;"></i></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <%= render "bookings/form" %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-ghost" data-bs-dismiss="modal"><i class="fa-solid fa-cart-shopping fa-lg" style="color: #f12009;"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 </div>
   <div class="accordion mt-3" id="accordionPanelsStayOpenExample">
@@ -70,16 +87,18 @@
           </button>
         </h2>
         <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-          <div class="accordion-body">
+          <div class="kitchen-features-items accordion-body d-flex">
+          <ul>
             <% @kitchen.features.each do |feature| %>
-              <i class="fa-sharp fa-solid fa-kitchen-set" style="color: #3b0570;"></i> <%= feature.name %>
+             <li><i class="fa-sharp fa-solid fa-kitchen-set" style="color: #f12009;"></i> <%= feature.name %></li>
             <% end %>
+          </ul>
           </div>
       </div>
       <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingThree">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-        Contact
+        About the host
       </button>
     </h2>
     <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
@@ -88,6 +107,7 @@
       </div>
     </div>
   </div>
+</div>
   <div class="mt-3">
     <div>
       <% if policy(@kitchen).edit? %>

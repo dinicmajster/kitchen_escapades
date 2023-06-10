@@ -46,13 +46,14 @@ class KitchensController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
     authorize @kitchen
   end
 
   private
 
   def kitchen_params
-    params.require(:kitchen).permit(:name, :location, :availability, :features, :description, :rating, :price, :owner_info, photos: [], feature_ids: [])
+    params.require(:kitchen).permit(:name, :location, :availability, :features, :description, :rating, :price, :owner_info, photos: [], feature_ids: [], booking_ids: [])
   end
 
   def get_kitchen
