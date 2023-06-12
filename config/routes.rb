@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :kitchens do
     resources :features, only: :create
-    resources :bookings, only: [ :new, :create]
+    resources :bookings, only: [ :new, :create, :show]
   end
 
   resources :features, only: :destroy do

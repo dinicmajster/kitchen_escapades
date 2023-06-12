@@ -30,3 +30,14 @@
 .card-product .card-product-infos {
   padding: 16px;
 }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .card-grid {grid-template-columns: 1fr;}
+
+}

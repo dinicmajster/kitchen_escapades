@@ -29,7 +29,7 @@
 <div class="container">
     <div class="mt-2">
       <div>
-        <h1><%= @kitchen.name %> </h1>
+        <h1><%= @kitchen.name %> <%= "🫒" * @kitchen.rating%></h1>
       </div>
       <div>
         <div>
@@ -40,14 +40,10 @@
           <i class="fa-regular fa-calendar" style="color: #e91620;"></i>
           Available from : <%= @kitchen.availability %>
         </div>
-        <div>
-          <i class="fa-sharp fa-solid fa-star" style="color: #f19c09;"> </i>
-          <%= @kitchen.rating %>
-        </div>
       <div>
-        <p><%= humanized_money_with_symbol(@kitchen.price) %></p>
+        <h2><%= humanized_money_with_symbol(@kitchen.price) %></h2>
       </div>
-      <button type="button" class="btn btn-flat mt-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">In the Pot <i class="fa-sharp fa-solid fa-carrot fa-lg" style="color: #fff;"></i></button>
+      <button type="button" class="btn btn-flat mt-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Reserve this Pot <i class="fa-sharp fa-solid fa-carrot fa-lg" style="color: #fff;"></i></button>
       <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -57,9 +53,6 @@
             </div>
             <div class="modal-body">
               <%= render "bookings/form" %>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-ghost" data-bs-dismiss="modal"><i class="fa-solid fa-cart-shopping fa-lg" style="color: #f12009;"></i></button>
             </div>
           </div>
         </div>

@@ -1,11 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :get_kitchen, only: [:new, :create]
-
-  def new
-    @kitchen = Kitchen.find(params[:kitchen_id])
-    @booking = Booking.new
-    authorize @booking
-  end
+  before_action :get_kitchen, only: [:create, :show]
 
   def create
     @booking = Booking.new(booking_params)
@@ -13,10 +7,15 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     if @booking.save
-      redirect_to kitchen_path(@kitchen)
+      redirect_to kitchen_booking_path(@kitchen, @booking)
     else
       render "kitchens/show", status: :unprocessable_entity
     end
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   private
