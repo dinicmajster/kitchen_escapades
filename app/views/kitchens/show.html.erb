@@ -41,8 +41,8 @@
           <i class="fa-regular fa-calendar" style="color: #e91620;"></i>
           Available from : <%= @kitchen.availability %>
         </div>
-      <div>
-        <h2><%= humanized_money_with_symbol(@kitchen.price) %></h2>
+      <div class="mt-2">
+        <h2> <%= humanized_money_with_symbol(@kitchen.price) %></h2>
       </div>
       <button type="button" class="btn btn-flat mt-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Reserve this Pot <i class="fa-sharp fa-solid fa-carrot fa-lg" style="color: #fff;"></i></button>
       <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
