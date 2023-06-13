@@ -6,5 +6,5 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_many :kitchens
   has_many :bookings
-  has_many :bookings_as_owner, through: :kitchens, source: :kitchens
+  has_many :bookings_as_owner, through: :kitchens, source: :bookings
 end

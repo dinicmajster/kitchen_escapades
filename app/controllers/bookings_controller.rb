@@ -18,6 +18,16 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
+  def mybookings
+    @mybookings = current_user.bookings.order(created_at: :asc)
+    authorize @mybookings
+  end
+
+  def myrentals
+    @myrentals = current_user.bookings_as_owner.order(created_at: :asc)
+    authorize @myrentals
+  end
+
   private
 
   def get_kitchen

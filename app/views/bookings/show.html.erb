@@ -1,2 +1,22 @@
-<h1>bravo, you booked it</h1>
-
+<div class="container">
+  <h1>Congratulations!</h1>
+  <div class="card-grid2">
+    <div class="card-trip card-category mt-3">
+      <% if @booking.kitchen.photos.attached? %>
+        <%= cl_image_tag @booking.kitchen.photos.sample.key, height: 200, width: 300, crop: :fill %>
+      <% else %>
+        <img src="/app/assets/images/logo.png" alt="">
+      <% end %>
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= link_to @booking.kitchen.name, kitchen_path(@booking.kitchen) %></h2>
+          <p class="mt-1">Booked for: <%= @booking.date.strftime('%d %B %Y')%> </p>
+          <p>Duration: <%= @booking.duration%> hours </p>
+          <p> Groceries: <%= @booking.groceries ? "Yes" : "No" %></p>
+          <p> Host: <%= @booking.host ? "Yes" : "No" %></p>
+        </div>
+        <h2 class="card-trip-pricing"><%= humanized_money_with_symbol(@booking.kitchen.price) %></h2>
+      </div>
+    </div>
+  </div>
+</div>

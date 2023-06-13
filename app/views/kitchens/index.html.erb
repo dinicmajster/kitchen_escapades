@@ -20,7 +20,7 @@
               <div class="card-trip-infos">
                 <div>
                   <h2><%= link_to kitchen.name, kitchen_path(kitchen) %></h2>
-                  <p class="mt-1"><%= "🫒" * kitchen.rating%> </p>
+                  <p class="mt-1"><%= "⭐️" * kitchen.rating%> </p>
                 </div>
                 <h2 class="card-trip-pricing"><%= humanized_money_with_symbol(kitchen.price) %></h2>
                 <%# <img class="card-trip-user avatar-bordered" /> %>

@@ -29,4 +29,8 @@ class KitchenPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def mybookings?
+    true
+  end
 end

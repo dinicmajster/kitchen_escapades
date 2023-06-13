@@ -29,7 +29,8 @@
 <div class="container">
     <div class="mt-2">
       <div>
-        <h1><%= @kitchen.name %> <%= "🫒" * @kitchen.rating%></h1>
+        <h1><%= @kitchen.name %></h1>
+        <h3><%= "⭐️" * @kitchen.rating%></h3>
       </div>
       <div>
         <div>
@@ -103,10 +104,10 @@
   <div class="mt-3">
     <div>
       <% if policy(@kitchen).edit? %>
-      <%= link_to "Edit this kitchen", edit_kitchen_path(@kitchen), class: "btn btn-ghost"%>
+      <%= link_to "✏️", edit_kitchen_path(@kitchen), class: "btn btn-ghost"%>
       <% end %>
     </div>
     <div class="mt-2">
-    <%= button_to "Destroy this kitchen", @kitchen, class: "btn btn-ghost", method: :delete if policy(@kitchen).destroy? %>
+    <%= button_to "🗑️", @kitchen, class: "btn btn-ghost", method: :delete if policy(@kitchen).destroy? %>
     </div>
   </div>

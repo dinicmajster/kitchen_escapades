@@ -10,6 +10,13 @@ Rails.application.routes.draw do
     resources :bookings, only: [ :new, :create, :show]
   end
 
+  resources :bookings, only: [] do
+    collection do
+      get :mybookings
+      get :myrentals
+    end
+  end
+
   resources :features, only: :destroy do
     resources :feature_tags, only: [ :new, :create ]
   end

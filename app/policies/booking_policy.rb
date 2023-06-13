@@ -17,4 +17,12 @@ class BookingPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def mybookings?
+    true
+  end
+
+  def myrentals?
+    true
+  end
 end
