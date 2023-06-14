@@ -1,14 +1,14 @@
 <div class="container mt-3">
   <h2>⏲️ Rentals</h2>
   <% @myrentals.each do |rt| %>
-    <h2><%= rt.kitchen.name %></h2>
+    <h2 class="mt-2"><%= rt.kitchen.name %></h2>
     <% rtl = rt.kitchen.name%>
     <% @myrentals.each do |rental| %>
       <% if rtl == rental.kitchen.name %>
         <div class="card-trip card-category mt-3">
           <div class="card-trip-infos">
             <div>
-              <h2><%= link_to rental.kitchen.name, kitchen_path(rental.kitchen) %></h2>
+              <p>Guest: <%= rental.user.first_name %> <%= rental.user.last_name %></p>
               <p class="mt-1">Booked for: <%= rental.date.strftime('%d %B %Y')%> </p>
               <p>Duration: <%= rental.duration%> hours </p>
               <p> Groceries: <%= rental.groceries ? "Yes" : "No" %></p>

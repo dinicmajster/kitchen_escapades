@@ -30,7 +30,7 @@
     <div class="mt-2">
       <div>
         <h1><%= @kitchen.name %></h1>
-        <h3><%= @kitchen.rating%></h3>
+        <h6><i class="fa-solid fa-star" style="color: #f7cf02;"></i> <%= @kitchen.rating%></h6>
       </div>
       <div>
         <div>
@@ -39,10 +39,10 @@
         </div>
         <div>
           <i class="fa-regular fa-calendar" style="color: #e91620;"></i>
-          Available from : <%= @kitchen.availability %>
+          Available from : <%= @kitchen.availability.strftime('%d %B %Y') %>
         </div>
       <div class="mt-2">
-        <h2> <%= humanized_money_with_symbol(@kitchen.price) %></h2>
+        <h5> <strong><%= humanized_money_with_symbol(@kitchen.price) %></strong></h5>
       </div>
       <button type="button" class="btn btn-flat mt-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Reserve this Pot <i class="fa-sharp fa-solid fa-carrot fa-lg" style="color: #fff;"></i></button>
       <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -96,7 +96,7 @@
     </h2>
     <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
       <div class="accordion-body">
-        <strong><%= @kitchen.owner_info %></strong>
+        <%= @kitchen.owner_info %>
       </div>
     </div>
   </div>
