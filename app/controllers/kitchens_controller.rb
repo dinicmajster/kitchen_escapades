@@ -47,6 +47,7 @@ class KitchensController < ApplicationController
 
   def show
     @booking = Booking.new
+    @review = Review.new
     authorize @kitchen
   end
 
