@@ -1,23 +1,20 @@
 <div class="container mt-3">
   <h2>⏲️ Rentals</h2>
-  <% @myrentals.each do |rt| %>
-    <h2 class="mt-2"><%= rt.kitchen.name %></h2>
-    <% rtl = rt.kitchen.name%>
-    <% @myrentals.each do |rental| %>
-      <% if rtl == rental.kitchen.name %>
-        <div class="card-trip card-category mt-3">
+  <% @items.each do |k_name, rtl| %>
+    <h2 class="mt-2"><%= k_name %></h2>
+    <% rtl.each do  |rt|%>
+      <div class="card-trip card-category mt-3">
           <div class="card-trip-infos">
             <div>
-              <p>Guest: <%= rental.user.first_name %> <%= rental.user.last_name %></p>
-              <p class="mt-1">Booked for: <%= rental.date.strftime('%d %B %Y')%> </p>
-              <p>Duration: <%= rental.duration%> hours </p>
-              <p> Groceries: <%= rental.groceries ? "Yes" : "No" %></p>
-              <p> Host: <%= rental.host ? "Yes" : "No" %></p>
+              <p>Guest: <%= rt.user.first_name %> <%= rt.user.last_name %></p>
+              <p class="mt-1">Booked for: <%= rt.date.strftime('%d %B %Y')%> </p>
+              <p>Duration: <%= rt.duration%> hours </p>
+              <p> Groceries: <%= rt.groceries ? "Yes" : "No" %></p>
+              <p> Host: <%= rt.host ? "Yes" : "No" %></p>
             </div>
-            <h2 class="card-trip-pricing"><%= humanized_money_with_symbol(rental.kitchen.price) %></h2>
+            <h2 class="card-trip-pricing"><%= humanized_money_with_symbol(rt.kitchen.price) %></h2>
           </div>
         </div>
-      <% end %>
     <% end %>
   <% end %>
 </div>

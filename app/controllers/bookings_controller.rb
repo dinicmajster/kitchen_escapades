@@ -24,7 +24,8 @@ class BookingsController < ApplicationController
   end
 
   def myrentals
-    @myrentals = current_user.bookings_as_owner.order(created_at: :asc)
+    @myrentals = current_user.bookings_as_owner.includes(:kitchen).order('kitchens.name ASC')
+    @items = @myrentals.group_by{ |booking| booking.kitchen.name }
     authorize @myrentals
   end
 
